@@ -33,12 +33,6 @@
       <column name="address" type="varchar(256)">
         <constraints nullable="false"/>
       </column>
-      <column name="created_at" type="Date">
-        <constraints nullable="false"/>
-      </column>
-      <column name="updated_at" type="Date">
-        <constraints nullable="false"/>
-      </column>
     </createTable>
   </changeSet>
 

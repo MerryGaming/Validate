@@ -26,10 +26,6 @@ public class UserResponse extends BaseValidator<UserResponse>{
   private Date dateOfBirth;
   @NotBlank
   private String address;
-  @NotNull
-  private Instant createdAt;
-  @NotNull
-  private Instant updatedAt;
 
   public UserResponse() {
   }
@@ -98,22 +94,6 @@ public class UserResponse extends BaseValidator<UserResponse>{
     this.address = address;
   }
 
-  public Instant getCreatedAt() {
-    return createdAt;
-  }
-
-  public void setCreatedAt(Instant createdAt) {
-    this.createdAt = createdAt;
-  }
-
-  public Instant getUpdatedAt() {
-    return updatedAt;
-  }
-
-  public void setUpdatedAt(Instant updatedAt) {
-    this.updatedAt = updatedAt;
-  }
-
   public static UserResponse from(User user) {
     UserResponse response = new UserResponse();
     response.setId(user.getId());
@@ -124,8 +104,6 @@ public class UserResponse extends BaseValidator<UserResponse>{
     response.setNumberPhone(user.getNumberPhone());
     response.setDateOfBirth(user.getDateOfBirth());
     response.setAddress(user.getAddress());
-    response.setCreatedAt(user.getCreatedAt());
-    response.setUpdatedAt(user.getUpdatedAt());
     return response;
 
   }

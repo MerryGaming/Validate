@@ -35,6 +35,7 @@ public class UserServiceImpl implements UserService {
   @Transactional
   public UserResponse created(CreateUserRequest createUserRequest) {
     log.info("(created)email user create: {}", createUserRequest.getEmail());
+    createUserRequest.validateClient();
     User user = createUserRequest.toUser();
     user.validate();
     UserResponse userCreated = UserResponse.from(repository.save(user));
@@ -64,12 +65,11 @@ public class UserServiceImpl implements UserService {
                 });
     User user = updateUser.toUser();
     user.setId(userAlready.getId());
-    user.setCreatedAt(userAlready.getCreatedAt());
     User update = repository.save(user);
     Optional.of(update)
         .orElseThrow(
             () -> {
-              throw new BadRequestBaseException(id);
+              throw new BadRequestBaseException(update);
             });
     UserResponse userUpdated = UserResponse.from(update);
     return userUpdated;

@@ -54,16 +54,6 @@ public class User extends BaseValidator<User> {
   @NotBlank
   private String address;
 
-  @CreationTimestamp
-  @Column(name = "created_at")
-  @NotNull
-  private Instant createdAt;
-
-  @UpdateTimestamp
-  @Column(name = "updated_at")
-  @NotNull
-  private Instant updatedAt;
-
 
 
 

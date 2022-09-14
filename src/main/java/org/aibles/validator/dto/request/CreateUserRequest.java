@@ -5,9 +5,10 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import org.aibles.validator.entity.User;
+import org.aibles.validator.validation.BaseValidator;
 
 
-public class CreateUserRequest  {
+public class CreateUserRequest extends BaseValidator<CreateUserRequest> {
 
   @NotBlank
   @Email

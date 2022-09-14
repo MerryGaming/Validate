@@ -4,9 +4,9 @@ import org.springframework.http.HttpStatus;
 
 
 public class NotFoundBaseException extends BaseExceptionRequest {
-    public NotFoundBaseException(long id) {
+    public NotFoundBaseException(Object setData) {
         setStatusException(HttpStatus.NOT_FOUND.value());
         setCode("org.aibles.validator.exception.NotFoundBaseException");
-        addParams("id", id);
+        addParams("400: BAD REQUEST!!!", setData);
     }
 }
